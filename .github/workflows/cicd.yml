@@ -1,8 +1,11 @@
-name: RELEASE
-on: 
-  workflow_dispatch:
+on:
+  push:
+    tags:
+      - '*'
     branches:
-        - main
+      - main
+
+name: Build and Release Apps
 
 jobs:
   release:
