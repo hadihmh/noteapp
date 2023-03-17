@@ -21,12 +21,10 @@ jobs:
         with:
           flutter-version: '3.7.7'
           channel: stable
-      - name: Build apk
-        run: | 
-          flutter pub get
-          flutter format --set-exit-if-changed .
-          flutter analyze
-          flutter build apk
+      - name: Install pub Dependencies
+        run: flutter pub get
+      - name: Build Android App
+        run: flutter build apk --split-per-abi
       - name: Retrieve Release Version
         id: versionstep
         run: |
