@@ -1,37 +1,40 @@
-on:
-  push:
-    tags:
-      - '*'
+name: RELEASE
+on: 
+  workflow_dispatch:
     branches:
-      - main
+        - main
 
-name: Build and Release Apps
 jobs:
-  build:
-    name: Build Apps
-    runs-on: macos-latest
+  release:
+    runs-on: ubuntu-latest
     steps:
-      - name: Export Release Timestamp
-        run: echo "APP_VERSION=v$(date +'%Y.%m.%d.%H.%M.%S')" >> $GITHUB_ENV
-      - name: Checkout repository
-        uses: actions/checkout@v1
-      - name: Set up Java
-        uses: actions/setup-java@v2
+      - uses: actions/checkout@v2
+      - name: Configure signature
+        run: |
+          echo "${{secrets.KEY_PROPERTIES}}" > android/key.properties
+          echo "${{secrets.RELEASE_KEYSTORE}}" > upload-keystore.encoded
+          base64 -d -i upload-keystore.encoded > ./android/app/upload-keystore.jks
+      - uses: actions/setup-java@v1
         with:
-          java-version: '15'
-          distribution: 'adopt'
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v1
+          java-version: '19.x'
+      - uses: subosito/flutter-action@v1
         with:
-          channel: 'stable'
-      - name: Install pub Dependencies
-        run: flutter pub get
-      - name: Build Android App
-        run: flutter build apk --split-per-abi
-      - name: Release Apps
+          flutter-version: '3.7.7'
+          channel: stable
+      - name: Build apk
+        run: | 
+          flutter pub get
+          flutter format --set-exit-if-changed .
+          flutter analyze
+          flutter build apk
+      - name: Retrieve Release Version
+        id: versionstep
+        run: |
+          VERSION=$(more pubspec.yaml | grep version: | cut -d ' ' -f2)
+          echo "::set-output name=VERSION::$VERSION"
+      - name: Upload the APK onto Github
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ env.APP_VERSION }}
-          name: ${{ env.APP_VERSION }}
+          artifacts: 'build/app/outputs/flutter-apk/*.apk'
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: 'build/app/outputs/apk/release/*.apk'
+          tag: ${{ steps.versionstep.outputs.VERSION }}
