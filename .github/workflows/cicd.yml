@@ -3,7 +3,7 @@ on:
     tags:
       - '*'
     branches:
-      - master
+      - main
 
 name: Build and Release Apps
 jobs:
