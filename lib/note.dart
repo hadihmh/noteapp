@@ -4,6 +4,7 @@ class Note {
   String? documentid;
   String? title;
   String? content;
+  bool editable = false;
 
   Note({this.documentid, this.title = '', this.content = ''});
 
