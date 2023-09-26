@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:live_location_app/controllers/map_controller.dart';
 import 'package:live_location_app/domain/config/config.dart';
+import 'package:live_location_app/widgets/drawer.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -25,6 +26,7 @@ class _MapScreenState extends State<MapScreen> {
           title: const Center(child: Text('Google Maps')),
           backgroundColor: Colors.amber,
         ),
+        drawer: CustomDrawer(),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () => mapController.currentLocation(_controller),
           label: const Text('My Location'),
