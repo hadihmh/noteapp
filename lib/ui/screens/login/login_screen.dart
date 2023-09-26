@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_first_co_app/controllers/auth_controller.dart';
+import 'package:live_location_app/controllers/auth_controller.dart';
 
 class LoginScreen extends StatefulWidget {
   static Route route() =>

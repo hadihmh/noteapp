@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:my_first_co_app/login_screen.dart';
-import 'firebase_options.dart';
-// import 'login_screen.dart';
-import 'home_screen.dart';
-// import 'edit_screen.dart';
+import 'package:live_location_app/ui/screens/login/login_screen.dart';
+
+import 'services/firebase/firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +20,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Live Location App',
       theme: ThemeData.light(),
       home: const LoginScreen(),
     );

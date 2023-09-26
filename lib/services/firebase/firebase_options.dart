@@ -47,30 +47,32 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAXMi06bUtmbYgcrAFEbCq43gZNVEw-T3w',
-    appId: '1:659622886805:android:0bf55f2f446052297aca9c',
+    apiKey: 'AIzaSyCUZeqhcSL5LXRxrYJ9N6udjJ1pym2H4dg',
+    appId: '1:93823949501:android:90180decf49cf15c84b5d4',
     messagingSenderId: '659622886805',
-    projectId: 'my-first-app-466bd',
-    storageBucket: 'my-first-app-466bd.appspot.com',
+    projectId: 'flutter-test-fedc0',
+    storageBucket: 'flutter-test-fedc0.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBUMX6R20I_oLLxbp4b9LGnA6lDDA5dl3A',
-    appId: '1:659622886805:ios:1828857f9d6b4ee37aca9c',
-    messagingSenderId: '659622886805',
-    projectId: 'my-first-app-466bd',
-    storageBucket: 'my-first-app-466bd.appspot.com',
-    iosClientId: '659622886805-jqngp7fqketls7aijq7qf7p773d4cq1r.apps.googleusercontent.com',
-    iosBundleId: 'com.example.myFirstCoApp',
+    apiKey: 'AIzaSyA25M-BlELnUlIJE_L6FTBEnzAcGG_O3zs',
+    appId: '1:93823949501:ios:22f9bc8d43ff92cf84b5d4',
+    messagingSenderId: '93823949501',
+    projectId: 'flutter-test-fedc0',
+    storageBucket: 'flutter-test-fedc0.appspot.com',
+    iosClientId:
+        '659622886805-jqngp7fqketls7aijq7qf7p773d4cq1r.apps.googleusercontent.com',
+    iosBundleId: 'de.benitecug.test.flutter',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBUMX6R20I_oLLxbp4b9LGnA6lDDA5dl3A',
-    appId: '1:659622886805:ios:1828857f9d6b4ee37aca9c',
-    messagingSenderId: '659622886805',
-    projectId: 'my-first-app-466bd',
-    storageBucket: 'my-first-app-466bd.appspot.com',
-    iosClientId: '659622886805-jqngp7fqketls7aijq7qf7p773d4cq1r.apps.googleusercontent.com',
-    iosBundleId: 'com.example.myFirstCoApp',
+    apiKey: 'AIzaSyA25M-BlELnUlIJE_L6FTBEnzAcGG_O3zs',
+    appId: '1:93823949501:ios:22f9bc8d43ff92cf84b5d4',
+    messagingSenderId: '93823949501',
+    projectId: 'flutter-test-fedc0',
+    storageBucket: 'flutter-test-fedc0.appspot.com',
+    iosClientId:
+        '659622886805-jqngp7fqketls7aijq7qf7p773d4cq1r.apps.googleusercontent.com',
+    iosBundleId: 'de.benitecug.test.flutter',
   );
 }

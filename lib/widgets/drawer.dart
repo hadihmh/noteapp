@@ -1,13 +1,11 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_first_co_app/controllers/auth_controller.dart';
-import 'package:my_first_co_app/login_screen.dart';
+import 'package:live_location_app/controllers/auth_controller.dart';
+import 'package:live_location_app/ui/screens/login/login_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   CustomDrawer({Key? key}) : super(key: key);
-  AuthController authController = Get.put(AuthController());
+  final AuthController authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +28,6 @@ class CustomDrawer extends StatelessWidget {
                 children: <Widget>[
                   ListTile(
                     minVerticalPadding: 5,
-                    // onTap: () => controller.logout(),
                     onTap: () {
                       authController.signOut();
                       Get.off(() => LoginScreen());
